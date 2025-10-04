@@ -13,11 +13,19 @@ var isAttacking: bool = false
 
 func Enter() -> void:
 	player.UpdateAnimation("attack")
-	
 	audio.stream = attack_sound
 	audio.pitch_scale = randf_range(0.9, 1.1)
 	audio.play()
 	attack_anim.play("attack_" + player.AnimDirection())
+	#match player.mouseScreenPosition:
+		#"up":
+			#player.override_direction(Vector2.UP)
+		#"down":
+			#player.override_direction(Vector2.DOWN)
+		#"left":
+			#player.override_direction(Vector2.LEFT)
+		#"right":
+			#player.override_direction(Vector2.RIGHT)
 	animation_player.animation_finished.connect(EndAttack)
 	isAttacking = true
 	pass

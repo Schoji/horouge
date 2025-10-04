@@ -10,6 +10,7 @@ func Enter() -> void:
 
 func Exit() -> void:
 	pass
+
 	
 func Process(_delta: float) -> State:
 	return null
@@ -17,5 +18,5 @@ func Process(_delta: float) -> State:
 func Physics(_delta: float) -> State:
 	return null
 	
-func HandleInput(_event: InputEvent) -> State:
+func handleInput(_event: InputEvent):
 	return null
