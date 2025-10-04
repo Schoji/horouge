@@ -8,6 +8,8 @@ var mouseScreenPosition: String = "down"
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+signal DirectionChanged(new_direction: Vector2)
+
 func _ready() -> void:
 	state_machine.Initialize(self)
 	
@@ -16,14 +18,15 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
-
+	direction = Vector2(
+		Input.get_axis("left", "right"),
+		Input.get_axis("up", "down")
+	).normalized()
 	pass
 
-func override_direction(direction: Vector2) -> void:
-	cardinal_direction = direction 
-	pass
+#func override_direction(direction: Vector2) -> void:
+	#cardinal_direction = direction 
+	#pass
 
 func calculateMouseScreenPosition() -> void:
 	var mousePosition = get_global_mouse_position()
@@ -55,6 +58,7 @@ func _physics_process(_delta: float) -> void:
 			
 	move_and_slide()
 	
+
 func SetDirection() -> bool:
 	var new_dir: Vector2 = cardinal_direction
 	if direction == Vector2.ZERO:
@@ -69,6 +73,7 @@ func SetDirection() -> bool:
 		return false
 	
 	cardinal_direction = new_dir
+	DirectionChanged.emit(new_dir)
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
 
