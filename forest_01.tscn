@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd746m0ut7ccs"]
+
+[ext_resource type="Texture2D" uid="uid://d0wr6vk1hmj3" path="res://Tile Maps/Sprites/ground_palette.png" id="1_w0pdo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xj38"]
+texture = ExtResource("1_w0pdo")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_edmd7"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 16
+sources/0 = SubResource("TileSetAtlasSource_6xj38")
+
+[node name="Forest01" type="TileMap"]
+z_index = -1
+tile_set = SubResource("TileSet_edmd7")
+format = 2

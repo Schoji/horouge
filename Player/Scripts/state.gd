@@ -10,6 +10,7 @@ func Enter() -> void:
 
 func Exit() -> void:
 	pass
+
 	
 func Process(_delta: float) -> State:
 	return null
