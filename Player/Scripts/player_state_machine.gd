@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	pass
 	
 func _unhandled_input(event: InputEvent) -> void:
-	ChangeState(current_state.handleInput(event))
+	ChangeState(current_state.HandleInput(event))
 	pass
 
 func Initialize(_player: Player) -> void:
