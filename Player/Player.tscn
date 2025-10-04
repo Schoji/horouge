@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dpyjkn1nxm28c"]
+[gd_scene load_steps=29 format=3 uid="uid://dpyjkn1nxm28c"]
 
 [ext_resource type="Texture2D" uid="uid://bvflkcvq5yeel" path="res://Player/Sprites/PlayerSprite02.png" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://bibr0jv7bb4yx" path="res://Player/Scripts/player.gd" id="1_8g4oa"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dcd7i73b3dcs6" path="res://Player/Sprites/Shadow.png" id="4_j23h2"]
 [ext_resource type="Script" uid="uid://cq6u3ln2iay6g" path="res://Player/Scripts/state_attack.gd" id="6_6ysni"]
 [ext_resource type="AudioStream" uid="uid://f1f2yay31i3h" path="res://Player/Audio/SwordSwoosh.wav" id="8_s1rgi"]
+[ext_resource type="Script" uid="uid://76jyqb5htf2o" path="res://Player/Scripts/player_flashlight.gd" id="10_0j2ni"]
 
 [sub_resource type="Animation" id="Animation_8g4oa"]
 length = 0.001
@@ -190,6 +191,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0iro7"]
+radius = 6.708204
 
 [sub_resource type="Animation" id="Animation_3mea3"]
 length = 0.001
@@ -427,6 +429,11 @@ _data = {
 motion_mode = 1
 wall_min_slide_angle = 0.17453292
 script = ExtResource("1_8g4oa")
+
+[node name="Flashlight" type="PointLight2D" parent="."]
+energy = 1.5
+shadow_enabled = true
+script = ExtResource("10_0j2ni")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
