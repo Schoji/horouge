@@ -1,3 +1,32 @@
-# Godot 4+ specific ignores
+# Godot-specific files
+.import/
+export.cfg
+export_presets.cfg
+
+# User-specific settings
 .godot/
-/android/
+.editor_settings-*.tres
+
+# Build and export directories
+build/
+exports/
+bin/
+dist/
+
+# OS / IDE clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+
+# VSCode / JetBrains / other IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Cache files
+.cache/
