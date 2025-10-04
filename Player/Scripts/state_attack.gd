@@ -10,6 +10,7 @@ var isAttacking: bool = false
 
 @onready var walk: State = $"../Walk"
 @onready var idle: State = $"../Idle"
+@onready var hurt_box: HurtBox = $"../../Interactions/HurtBox"
 
 func Enter() -> void:
 	player.UpdateAnimation("attack")
@@ -28,10 +29,14 @@ func Enter() -> void:
 			#player.override_direction(Vector2.RIGHT)
 	animation_player.animation_finished.connect(EndAttack)
 	isAttacking = true
+	await get_tree().create_timer(0.075).timeout
+	hurt_box.monitoring = true
+
 	pass
 
 func Exit() -> void: 	
 	animation_player.animation_finished.disconnect(EndAttack)
+	hurt_box.monitoring = false
 	isAttacking = false
 	
 func Process(_delta: float) -> State:
