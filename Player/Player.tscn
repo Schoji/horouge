@@ -424,6 +424,8 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.17453292
 script = ExtResource("1_8g4oa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
