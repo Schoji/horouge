@@ -527,9 +527,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkela"]
-size = Vector2(23, 43)
+size = Vector2(36, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2k2y"]
+size = Vector2(35.263645, 9.870235)
 
 [sub_resource type="Animation" id="Animation_fbm3w"]
 length = 0.001
@@ -628,13 +629,15 @@ libraries = {
 [node name="Hitbox" parent="." instance=ExtResource("4_fkela")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_fkela")
 
 [node name="HurtBox" parent="." instance=ExtResource("5_d2k2y")]
+position = Vector2(0, -1)
+scale = Vector2(1.0658864, -1.1439674)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-scale = Vector2(1.1160159, 2.1765454)
+position = Vector2(-1.8626451e-09, -2.9802322e-08)
+scale = Vector2(1.1160158, 2.1765454)
 shape = SubResource("RectangleShape2D_d2k2y")
 
 [node name="DestroySprite" type="Sprite2D" parent="."]

@@ -1,6 +1,9 @@
 class_name Player extends CharacterBody2D
 
+var isAttacked: bool = false
 var cardinal_direction: Vector2 = Vector2.DOWN
+@export var hp: int = 3
+@export var max_hp: int = 3
 const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 var direction: Vector2 = Vector2.ZERO
 var mouseScreenPosition: String = "down"
@@ -8,15 +11,34 @@ var mouseScreenPosition: String = "down"
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hit_box: HitBox = $Interactions/HitBox
 
 signal DirectionChanged(new_direction: Vector2)
+signal healthChanged()
 
 func _ready() -> void:
 	state_machine.Initialize(self)
-	
+	hit_box.Damaged.connect(TakeDamage)
 	pass
 
 
+func TakeDamage(_damage: int) -> void:
+	if isAttacked:  # Zabezpieczenie przed wielokrotnym hitem
+		return
+	if (hp > 0):
+		hp = hp - _damage
+	
+	healthChanged.emit(hp)
+	isAttacked = true
+	
+	if hp <= 0:
+		UpdateAnimation("destroy")
+		await animation_player.animation_finished
+		print("You are dead!")
+	else:
+		UpdateAnimation("stun")
+		await animation_player.animation_finished
+		isAttacked = false
 
 func _process(_delta: float) -> void:
 	direction = Vector2(
