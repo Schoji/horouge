@@ -1,7 +1,8 @@
 class_name EnemyMovement extends CharacterBody2D
 
 @export var move_speed: float = 30
-
+@export var hp: int = 3
+var isAttacked: bool = false
 var cardinal_direction: Vector2 = Vector2.ZERO
 var move_direction: Vector2 = Vector2.ZERO
 var state: String = "walk"
@@ -16,16 +17,26 @@ func _ready() -> void:
 	$Hitbox.Damaged.connect(TakeDamage)
 
 func TakeDamage(_damage: int) -> void:
-	queue_free()
-	pass
-	#timer.timeout.connect(_on_timeout)
-	#timer.start()
-#
-#func _on_timeout() -> void:
-	#state = states[randi_range(0, states.size() - 1)]
-	#selectNewDirection()
+	if isAttacked:  # Zabezpieczenie przed wielokrotnym hitem
+		return
+		
+	print("XDD")
+	hp = hp - _damage
+	isAttacked = true
+	
+	if hp <= 0:
+		UpdateAnimation("destroy")
+		await animation_player.animation_finished
+		queue_free()
+	else:
+		UpdateAnimation("stun")
+		await animation_player.animation_finished
+		isAttacked = false
 
 func selectNewDirection() -> void:
+	if isAttacked:  # NIE ruszaj się podczas stuna!
+		return
+		
 	if state != "walk":
 		move_direction = Vector2.ZERO
 		UpdateAnimation("idle")
@@ -47,8 +58,10 @@ func selectNewDirection() -> void:
 	UpdateAnimation("walk")
 
 func _physics_process(_delta: float) -> void:
-	selectNewDirection()
-	if state == "walk":
+	if !isAttacked:  # Nie ruszaj się podczas ataku/stuna
+		selectNewDirection()
+		
+	if state == "walk" and !isAttacked:
 		velocity = move_direction * move_speed
 	else:
 		velocity = Vector2.ZERO
