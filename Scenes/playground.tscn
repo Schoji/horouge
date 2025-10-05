@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://06ga3gv10hlc"]
+[gd_scene load_steps=20 format=3 uid="uid://06ga3gv10hlc"]
 
 [ext_resource type="Script" uid="uid://csnr3jp0wbumi" path="res://world.gd" id="1_73bjl"]
 [ext_resource type="PackedScene" uid="uid://dpyjkn1nxm28c" path="res://Player/Player.tscn" id="1_uof5o"]
 [ext_resource type="PackedScene" uid="uid://cd746m0ut7ccs" path="res://ground_01.tscn" id="2_6xle2"]
 [ext_resource type="Script" uid="uid://bj1ex5krh56dn" path="res://Scenes/game_over.gd" id="2_xwjr1"]
 [ext_resource type="PackedScene" uid="uid://tbhp2nsl8sac" path="res://Enemy/Enemy.tscn" id="3_u4ce8"]
+[ext_resource type="FontFile" uid="uid://dsouy4osrjear" path="res://Assets/PixelatedDisplay.ttf" id="3_ubr2o"]
 [ext_resource type="PackedScene" path="res://rocks_01.tscn" id="4_qyfof"]
 [ext_resource type="Texture2D" uid="uid://b16myr5iybpyp" path="res://Tile Maps/Sprites/rock_palette.png" id="5_3e07v"]
 [ext_resource type="PackedScene" uid="uid://0dffncivpldo" path="res://trees_01.tscn" id="6_vl51c"]
@@ -15,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://2fc4iucpxh5m" path="res://hearts_container.tscn" id="10_6hjy0"]
 [ext_resource type="AudioStream" uid="uid://dfig4ua1tootg" path="res://Assets/ost.wav" id="14_xwjr1"]
 [ext_resource type="AudioStream" uid="uid://c1sovx54fmfhf" path="res://Assets/rain.wav" id="15_gy3ny"]
+
+[sub_resource type="FontVariation" id="FontVariation_2f6ep"]
+base_font = ExtResource("3_ubr2o")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vl51c"]
 texture = ExtResource("5_3e07v")
@@ -62,6 +66,7 @@ offset_left = 135.0
 offset_top = 116.0
 offset_right = 357.0
 offset_bottom = 167.0
+theme_override_fonts/font = SubResource("FontVariation_2f6ep")
 theme_override_font_sizes/font_size = 37
 text = "GAME OVER!"
 horizontal_alignment = 1
@@ -72,7 +77,8 @@ offset_left = 200.0
 offset_top = 180.0
 offset_right = 287.0
 offset_bottom = 211.0
-text = "Play again"
+theme_override_fonts/font = ExtResource("3_ubr2o")
+text = "PLAY AGAIN"
 
 [node name="Player" parent="." instance=ExtResource("1_uof5o")]
 y_sort_enabled = true

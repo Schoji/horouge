@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 var isAttacked: bool = false
+@export var invincibility_duration: float = 0.5
 var cardinal_direction: Vector2 = Vector2.DOWN
 @export var hp: int = 5
 @export var max_hp: int = 5
@@ -12,6 +13,7 @@ var mouseScreenPosition: String = "down"
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hit_box: HitBox = $Interactions/HitBox
+var is_invincible: bool = false
 
 signal DirectionChanged(new_direction: Vector2)
 signal healthChanged()
@@ -23,23 +25,31 @@ func _ready() -> void:
 
 
 func TakeDamage(_damage: int) -> void:
-	if isAttacked:  # Zabezpieczenie przed wielokrotnym hitem
+	if is_invincible:  # Zabezpieczenie przed wielokrotnym hitem
 		return
 	if (hp > 0):
 		hp = hp - _damage
 	
 	healthChanged.emit(hp)
-	isAttacked = true
+	is_invincible = true  # Włącz nietykalność
+
 	
 	if hp <= 0:
 		UpdateAnimation("destroy")
-		await animation_player.animation_finished
+		#await animation_player.animation_finished
 		print("You are dead!")
 		get_node("../GameOver").game_over()
 	else:
 		UpdateAnimation("stun")
 		await animation_player.animation_finished
 		isAttacked = false
+		
+	await get_tree().create_timer(invincibility_duration).timeout
+	is_invincible = false
+	
+	if animation_player.is_playing():
+		await animation_player.animation_finished
+	isAttacked = false
 
 func _process(_delta: float) -> void:
 	direction = Vector2(
@@ -48,40 +58,9 @@ func _process(_delta: float) -> void:
 	).normalized()
 	pass
 
-#func override_direction(direction: Vector2) -> void:
-	#cardinal_direction = direction 
-	#pass
-
-func calculateMouseScreenPosition() -> void:
-	var mousePosition = get_global_mouse_position()
-	var mouseX = mousePosition[0]
-	var mouseY = mousePosition[1]
-	var screenSize: Vector2 = get_viewport().get_visible_rect().size
-	var screenWidth = screenSize[0]
-	var screenHeight = screenSize[1]
-	var whereX: String
-	var whereY: String
-	if (mouseX <= screenWidth / 2):
-		whereX = "left"
-	else:
-		whereX = "right"
-	
-	if (mouseY <= screenHeight / 2):
-		whereY = "up"
-	else:
-		whereY = "down"
-	
-	
-	if ( abs(screenWidth / 2 - mouseX) >= abs(screenHeight / 2 - mouseY)):
-		mouseScreenPosition = whereX
-	else:
-		mouseScreenPosition = whereY
-
 func _physics_process(_delta: float) -> void:
-	#calculateMouseScreenPosition()
-			
 	move_and_slide()
-	
+
 
 func SetDirection() -> bool:
 	if direction == Vector2.ZERO:
