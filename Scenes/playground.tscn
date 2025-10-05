@@ -98,6 +98,7 @@ layer_0/tile_data = PackedInt32Array(786467, 1, 1, 851971, 131073, 1, 1245198, 6
 script = ExtResource("8_wqftc")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(1.2032687e-07, 0.32094774, 0.36649996, 1)
 
 [node name="Wall" type="StaticBody2D" parent="."]
