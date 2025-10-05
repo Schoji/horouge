@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://06ga3gv10hlc"]
+[gd_scene load_steps=17 format=3 uid="uid://06ga3gv10hlc"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_73bjl"]
 [ext_resource type="PackedScene" uid="uid://dpyjkn1nxm28c" path="res://Player/Player.tscn" id="1_uof5o"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://GeneralNodes/Spawner.gd" id="9_m3lqc"]
 [ext_resource type="PackedScene" path="res://hearts_container.tscn" id="10_6hjy0"]
 [ext_resource type="AudioStream" uid="uid://dfig4ua1tootg" path="res://Assets/ost.wav" id="13_xfd6h"]
+[ext_resource type="AudioStream" uid="uid://c1sovx54fmfhf" path="res://Assets/rain.wav" id="14_xwjr1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vl51c"]
 texture = ExtResource("5_3e07v")
@@ -118,4 +119,9 @@ grow_horizontal = 2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_xfd6h")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_xwjr1")
+volume_db = -3.852
 autoplay = true
