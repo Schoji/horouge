@@ -1,6 +1,16 @@
 extends HBoxContainer
 
 @onready var HeartGuiClass = preload("res://heart_gui.tscn")
+@onready var main_menu: CanvasLayer = $"../../MainMenu"
+
+
+func _ready() -> void:
+	main_menu.showHearts.connect(showeq)
+	self.hide()
+
+func showeq() -> void:
+	self.show()
+
 func setMaxHearts(max_hearts: int):
 	for i in range(max_hearts):
 		var heart = HeartGuiClass.instantiate()

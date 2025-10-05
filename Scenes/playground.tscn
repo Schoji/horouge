@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://06ga3gv10hlc"]
+[gd_scene load_steps=28 format=3 uid="uid://06ga3gv10hlc"]
 
 [ext_resource type="Script" uid="uid://csnr3jp0wbumi" path="res://world.gd" id="1_73bjl"]
 [ext_resource type="PackedScene" uid="uid://dpyjkn1nxm28c" path="res://Player/Player.tscn" id="1_uof5o"]
@@ -16,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://2fc4iucpxh5m" path="res://hearts_container.tscn" id="10_6hjy0"]
 [ext_resource type="AudioStream" uid="uid://dfig4ua1tootg" path="res://Assets/ost.wav" id="14_xwjr1"]
 [ext_resource type="AudioStream" uid="uid://c1sovx54fmfhf" path="res://Assets/rain.wav" id="15_gy3ny"]
+[ext_resource type="Texture2D" uid="uid://c616wtl8w4pev" path="res://Assets/Horouge_Logo.png" id="17_2f6ep"]
+[ext_resource type="Script" uid="uid://cpisyfg18t2v" path="res://Scenes/main_menu.gd" id="17_ogptx"]
+[ext_resource type="Texture2D" uid="uid://6ax3vg8626pt" path="res://Assets/spidey_menu.png" id="18_i7unl"]
+[ext_resource type="Script" uid="uid://dh5edvsifdk1y" path="res://Scenes/mainspider.gd" id="19_wc4mg"]
 
 [sub_resource type="FontVariation" id="FontVariation_2f6ep"]
 base_font = ExtResource("3_ubr2o")
@@ -48,6 +52,45 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 16
 sources/0 = SubResource("TileSetAtlasSource_vl51c")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogptx"]
+bg_color = Color(0, 0, 0, 0.5372549)
+
+[sub_resource type="Animation" id="Animation_i7unl"]
+resource_name = "pajacowanie"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93333334),
+"transitions": PackedFloat32Array(0.26794347, 0.25),
+"update": 0,
+"values": [Vector2(155, -300), Vector2(160, 183)]
+}
+
+[sub_resource type="Animation" id="Animation_wc4mg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(169, 183)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i25ng"]
+_data = {
+&"RESET": SubResource("Animation_wc4mg"),
+&"pajacowanie": SubResource("Animation_i7unl")
+}
 
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
@@ -161,4 +204,70 @@ stream = ExtResource("15_gy3ny")
 volume_db = -4.0
 autoplay = true
 
+[node name="MainMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("17_ogptx")
+
+[node name="Panel" type="Panel" parent="MainMenu"]
+offset_right = 480.0
+offset_bottom = 290.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ogptx")
+metadata/_edit_use_anchors_ = true
+
+[node name="Spidey" type="Sprite2D" parent="MainMenu/Panel"]
+position = Vector2(169, 183)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("18_i7unl")
+script = ExtResource("19_wc4mg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenu/Panel/Spidey"]
+libraries = {
+&"": SubResource("AnimationLibrary_i25ng")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenu/Panel"]
+position = Vector2(250, 73.5)
+texture = ExtResource("17_2f6ep")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Panel"]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 122.0
+offset_right = 359.0
+offset_bottom = 205.0
+theme_override_constants/separation = 10
+
+[node name="Play" type="Button" parent="MainMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ubr2o")
+theme_override_font_sizes/font_size = 24
+text = "PLAY"
+
+[node name="Options" type="Label" parent="MainMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47, 0.47, 0.47, 1)
+theme_override_fonts/font = ExtResource("3_ubr2o")
+theme_override_font_sizes/font_size = 24
+text = "OPTIONS"
+
+[node name="Exit" type="Button" parent="MainMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ubr2o")
+theme_override_font_sizes/font_size = 24
+text = "EXIT"
+
+[node name="Label" type="Label" parent="MainMenu/Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 267.0
+offset_right = 245.0
+offset_bottom = 290.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.47843137)
+theme_override_fonts/font = ExtResource("3_ubr2o")
+theme_override_font_sizes/font_size = 10
+text = "0.1.1b-25.10 PRE RELEASE ALPHA (JSON DERULO)"
+uppercase = true
+
 [connection signal="pressed" from="GameOver/Button" to="GameOver" method="_on_button_pressed"]
+[connection signal="pressed" from="MainMenu/Panel/VBoxContainer/Play" to="MainMenu" method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/Panel/VBoxContainer/Exit" to="MainMenu" method="_on_exit_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1cvphwttbkqp"]
 
-[ext_resource type="Texture2D" uid="uid://d34t1tvvy8wdk" path="res://Assets/Heart.png" id="1_1xhc3"]
 [ext_resource type="Script" uid="uid://ct5w5x3mrc4wd" path="res://heart_gui.gd" id="1_460sw"]
+[ext_resource type="Texture2D" uid="uid://udixgbtxdwdf" path="res://Assets/hp_palette.png" id="2_460sw"]
 
 [node name="HeartGui" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -11,7 +11,7 @@ offset_bottom = 16.0
 script = ExtResource("1_460sw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1xhc3")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_460sw")
 centered = false
-hframes = 5
-frame = 4
+hframes = 2
