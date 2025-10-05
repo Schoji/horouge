@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ubduutc1f1gx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q8kfx"]
+load_path = "res://.godot/imported/barrier.png-bba3f3a62bbb0285382de1f3396cdc96.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4421"]
+texture = SubResource("CompressedTexture2D_q8kfx")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, -2, 2, -2, 2, 2, -2, 2)
+
+[sub_resource type="TileSet" id="TileSet_q8kfx"]
+tile_size = Vector2i(4, 4)
+physics_layer_0/collision_layer = 16
+sources/0 = SubResource("TileSetAtlasSource_r4421")
+
+[node name="Barriers01" type="TileMap"]
+tile_set = SubResource("TileSet_q8kfx")
+format = 2

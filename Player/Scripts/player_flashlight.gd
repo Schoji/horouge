@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 			position = Vector2(0, 6)  # Dostosuj te wartości
 		Vector2.UP:
 			rotation_degrees = -90
-			position = Vector2(0, -6)  # Dostosuj te wartości
+			position = Vector2(0, -20)  # Dostosuj te wartości
 		Vector2.LEFT:
 			rotation_degrees = 180
 			position = Vector2(-1, 0)  # Dostosuj te wartości
