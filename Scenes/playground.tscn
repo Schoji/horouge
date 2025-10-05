@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://06ga3gv10hlc"]
 
 [ext_resource type="PackedScene" uid="uid://dpyjkn1nxm28c" path="res://Player/Player.tscn" id="1_uof5o"]
-[ext_resource type="PackedScene" uid="uid://cd746m0ut7ccs" path="res://ground_01.tscn" id="2_6xle2"]
+[ext_resource type="PackedScene" path="res://ground_01.tscn" id="2_6xle2"]
 [ext_resource type="PackedScene" uid="uid://tbhp2nsl8sac" path="res://Enemy/Enemy.tscn" id="3_u4ce8"]
 [ext_resource type="PackedScene" uid="uid://mp0ljg6qhq20" path="res://rocks_01.tscn" id="4_qyfof"]
 [ext_resource type="Texture2D" uid="uid://b16myr5iybpyp" path="res://Tile Maps/Sprites/rock_palette.png" id="5_3e07v"]
