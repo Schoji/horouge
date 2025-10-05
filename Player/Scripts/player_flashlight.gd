@@ -40,7 +40,7 @@ func create_cone_gradient() -> Texture2D:
 	var img = Image.create(256, 256, false, Image.FORMAT_RGBA8)
 	
 	var center = Vector2(0, 128) # Lewy środek
-	var cone_angle = 60.0 # Kąt stożka w stopniach
+	var cone_angle = 65.0 # Kąt stożka w stopniach
 	var cone_length = 256.0
 	var min_distance = 5.0 # Obcięcie od strony gracza - TUTAJ!
 	

@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cq6u3ln2iay6g" path="res://Player/Scripts/state_attack.gd" id="6_6ysni"]
 [ext_resource type="AudioStream" uid="uid://f1f2yay31i3h" path="res://Player/Audio/SwordSwoosh.wav" id="8_s1rgi"]
 [ext_resource type="Script" uid="uid://76jyqb5htf2o" path="res://Player/Scripts/player_flashlight.gd" id="10_0j2ni"]
-[ext_resource type="Script" path="res://Player/Scripts/player_interactions.gd" id="10_5wa8t"]
+[ext_resource type="Script" uid="uid://crbkoq887q3te" path="res://Player/Scripts/player_interactions.gd" id="10_5wa8t"]
 [ext_resource type="PackedScene" uid="uid://dm0pxlodp78ij" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="11_v0k0e"]
 [ext_resource type="PackedScene" uid="uid://4vjbsvy8ofu5" path="res://GeneralNodes/Hitbox/hitbox.tscn" id="13_p7tob"]
 
@@ -181,8 +181,8 @@ _data = {
 &"walk_up": SubResource("Animation_s1rgi")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0iro7"]
-radius = 6.708204
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7tob"]
+size = Vector2(20, 25)
 
 [sub_resource type="Animation" id="Animation_3mea3"]
 length = 0.001
@@ -436,7 +436,8 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_0iro7")
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_p7tob")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3qydi")

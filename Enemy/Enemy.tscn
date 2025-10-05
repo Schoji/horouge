@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://4vjbsvy8ofu5" path="res://GeneralNodes/Hitbox/hitbox.tscn" id="4_fkela"]
 [ext_resource type="PackedScene" uid="uid://dm0pxlodp78ij" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="5_d2k2y"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d2k2y"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd4ap"]
+size = Vector2(20, 31)
 
 [sub_resource type="Animation" id="Animation_vonkd"]
 length = 0.001
@@ -40,23 +41,6 @@ tracks/0/keys = {
 "values": [0, 2]
 }
 
-[sub_resource type="Animation" id="Animation_fkela"]
-resource_name = "idle_up"
-length = 0.3
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [3, 5]
-}
-
 [sub_resource type="Animation" id="Animation_d2k2y"]
 resource_name = "idle_side"
 length = 0.3
@@ -72,6 +56,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_fkela"]
+resource_name = "idle_up"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3, 5]
 }
 
 [sub_resource type="Animation" id="Animation_jd4ap"]
@@ -91,23 +92,6 @@ tracks/0/keys = {
 "values": [9, 12]
 }
 
-[sub_resource type="Animation" id="Animation_1ypri"]
-resource_name = "walk_up"
-length = 0.3
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [13, 16]
-}
-
 [sub_resource type="Animation" id="Animation_uxjip"]
 resource_name = "walk_side"
 length = 0.3
@@ -123,6 +107,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [17, 20]
+}
+
+[sub_resource type="Animation" id="Animation_1ypri"]
+resource_name = "walk_up"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [13, 16]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ypri"]
@@ -142,11 +143,13 @@ size = Vector2(23, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2k2y"]
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_mask = 17
 script = ExtResource("1_vonkd")
 move_speed = 50.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_d2k2y")
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_jd4ap")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture = ExtResource("1_epr5s")
