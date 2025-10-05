@@ -2,8 +2,8 @@ class_name Player extends CharacterBody2D
 
 var isAttacked: bool = false
 var cardinal_direction: Vector2 = Vector2.DOWN
-@export var hp: int = 3
-@export var max_hp: int = 3
+@export var hp: int = 5
+@export var max_hp: int = 5
 const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 var direction: Vector2 = Vector2.ZERO
 var mouseScreenPosition: String = "down"
@@ -35,6 +35,7 @@ func TakeDamage(_damage: int) -> void:
 		UpdateAnimation("destroy")
 		await animation_player.animation_finished
 		print("You are dead!")
+		get_node("../GameOver").game_over()
 	else:
 		UpdateAnimation("stun")
 		await animation_player.animation_finished
