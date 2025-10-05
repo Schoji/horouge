@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://06ga3gv10hlc"]
 
 [ext_resource type="PackedScene" uid="uid://dpyjkn1nxm28c" path="res://Player/Player.tscn" id="1_uof5o"]
-[ext_resource type="PackedScene" uid="uid://cd746m0ut7ccs" path="res://ground_01.tscn" id="2_6xle2"]
+[ext_resource type="PackedScene" path="res://ground_01.tscn" id="2_6xle2"]
 [ext_resource type="PackedScene" uid="uid://tbhp2nsl8sac" path="res://Enemy/Enemy.tscn" id="3_u4ce8"]
-[ext_resource type="PackedScene" uid="uid://mp0ljg6qhq20" path="res://rocks_01.tscn" id="4_qyfof"]
+[ext_resource type="PackedScene" path="res://rocks_01.tscn" id="4_qyfof"]
 [ext_resource type="Texture2D" uid="uid://b16myr5iybpyp" path="res://Tile Maps/Sprites/rock_palette.png" id="5_3e07v"]
-[ext_resource type="PackedScene" uid="uid://0dffncivpldo" path="res://trees_01.tscn" id="6_vl51c"]
-[ext_resource type="PackedScene" uid="uid://du7k88iuluxvg" path="res://rocks_02.tscn" id="7_opmy1"]
-[ext_resource type="Script" uid="uid://b5o76e56yawr" path="res://Player/Scripts/rain.gd" id="8_wqftc"]
+[ext_resource type="PackedScene" path="res://trees_01.tscn" id="6_vl51c"]
+[ext_resource type="PackedScene" path="res://rocks_02.tscn" id="7_opmy1"]
+[ext_resource type="Script" path="res://Player/Scripts/rain.gd" id="8_wqftc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vl51c"]
 texture = ExtResource("5_3e07v")

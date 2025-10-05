@@ -16,6 +16,18 @@
 
 [sub_resource type="Animation" id="Animation_8g4oa"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [82]
+}
 
 [sub_resource type="Animation" id="Animation_v0k0e"]
 resource_name = "attack_down"
@@ -30,7 +42,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [32, 43]
+"values": [33, 43]
 }
 
 [sub_resource type="Animation" id="Animation_p7tob"]
@@ -43,10 +55,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.16666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [27, 29]
+"values": [44, 54]
 }
 
 [sub_resource type="Animation" id="Animation_5wa8t"]
@@ -79,7 +91,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [80, 87]
+"values": [80, 85]
 }
 
 [sub_resource type="Animation" id="Animation_vlldt"]
@@ -96,7 +108,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [6, 8]
+"values": [88, 95]
 }
 
 [sub_resource type="Animation" id="Animation_6ysni"]
@@ -110,10 +122,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [3, 4, 5]
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [104, 109]
 }
 
 [sub_resource type="Animation" id="Animation_j23h2"]
@@ -144,10 +156,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [17, 18, 19, 20]
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [11, 21]
 }
 
 [sub_resource type="Animation" id="Animation_s1rgi"]
@@ -443,7 +455,7 @@ shape = SubResource("RectangleShape2D_p7tob")
 texture = ExtResource("2_j23h2")
 hframes = 11
 vframes = 10
-frame = 23
+frame = 82
 
 [node name="AttackEffectSprite" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(0, -16)
