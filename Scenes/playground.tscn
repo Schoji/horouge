@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://06ga3gv10hlc"]
-[gd_scene load_steps=17 format=3 uid="uid://06ga3gv10hlc"]
+[gd_scene load_steps=18 format=3 uid="uid://06ga3gv10hlc"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_73bjl"]
+[ext_resource type="Script" uid="uid://csnr3jp0wbumi" path="res://world.gd" id="1_73bjl"]
 [ext_resource type="PackedScene" uid="uid://dpyjkn1nxm28c" path="res://Player/Player.tscn" id="1_uof5o"]
 [ext_resource type="PackedScene" uid="uid://cd746m0ut7ccs" path="res://ground_01.tscn" id="2_6xle2"]
 [ext_resource type="Script" uid="uid://bj1ex5krh56dn" path="res://Scenes/game_over.gd" id="2_xwjr1"]
-[ext_resource type="Script" uid="uid://nh0xsq3eryao" path="res://Scenes/retryButton.gd" id="3_gy3ny"]
 [ext_resource type="PackedScene" uid="uid://tbhp2nsl8sac" path="res://Enemy/Enemy.tscn" id="3_u4ce8"]
 [ext_resource type="PackedScene" path="res://rocks_01.tscn" id="4_qyfof"]
 [ext_resource type="Texture2D" uid="uid://b16myr5iybpyp" path="res://Tile Maps/Sprites/rock_palette.png" id="5_3e07v"]
@@ -13,10 +11,10 @@
 [ext_resource type="PackedScene" path="res://rocks_02.tscn" id="7_opmy1"]
 [ext_resource type="PackedScene" path="res://bushes_01.tscn" id="8_m3lqc"]
 [ext_resource type="Script" path="res://Player/Scripts/rain.gd" id="8_wqftc"]
-[ext_resource type="Script" path="res://GeneralNodes/Spawner.gd" id="9_m3lqc"]
-[ext_resource type="PackedScene" path="res://hearts_container.tscn" id="10_6hjy0"]
-[ext_resource type="AudioStream" uid="uid://dfig4ua1tootg" path="res://Assets/ost.wav" id="13_xfd6h"]
-[ext_resource type="AudioStream" uid="uid://c1sovx54fmfhf" path="res://Assets/rain.wav" id="14_xwjr1"]
+[ext_resource type="Script" uid="uid://bktj70ccb7ure" path="res://GeneralNodes/Spawner.gd" id="9_m3lqc"]
+[ext_resource type="PackedScene" uid="uid://2fc4iucpxh5m" path="res://hearts_container.tscn" id="10_6hjy0"]
+[ext_resource type="AudioStream" uid="uid://dfig4ua1tootg" path="res://Assets/ost.wav" id="14_xwjr1"]
+[ext_resource type="AudioStream" uid="uid://c1sovx54fmfhf" path="res://Assets/rain.wav" id="15_gy3ny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vl51c"]
 texture = ExtResource("5_3e07v")
@@ -75,7 +73,6 @@ offset_top = 180.0
 offset_right = 287.0
 offset_bottom = 211.0
 text = "Play again"
-script = ExtResource("3_gy3ny")
 
 [node name="Player" parent="." instance=ExtResource("1_uof5o")]
 y_sort_enabled = true
@@ -147,13 +144,15 @@ offset_right = 29.0
 offset_bottom = 16.0
 grow_horizontal = 2
 
-[connection signal="pressed" from="GameOver/Button" to="GameOver" method="_on_button_pressed"]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_xfd6h")
-autoplay = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ost" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(200, 180)
 stream = ExtResource("14_xwjr1")
-volume_db = -3.852
 autoplay = true
+
+[node name="rain" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(200, 180)
+stream = ExtResource("15_gy3ny")
+volume_db = -4.0
+autoplay = true
+
+[connection signal="pressed" from="GameOver/Button" to="GameOver" method="_on_button_pressed"]
