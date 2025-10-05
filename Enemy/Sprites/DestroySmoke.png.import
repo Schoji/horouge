@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0784qik8jfc5"
-path="res://.godot/imported/ground_palette.png-43ca34034d271c1efe680fb57abae2d4.ctex"
+uid="uid://jvpgus6fvoph"
+path="res://.godot/imported/DestroySmoke.png-bfc56d2d4a29930dd70258a913077003.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile Maps/Sprites/ground_palette.png"
-dest_files=["res://.godot/imported/ground_palette.png-43ca34034d271c1efe680fb57abae2d4.ctex"]
+source_file="res://Enemy/Sprites/DestroySmoke.png"
+dest_files=["res://.godot/imported/DestroySmoke.png-bfc56d2d4a29930dd70258a913077003.ctex"]
 
 [params]
 

@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 			position = Vector2(0, 6)  # Dostosuj te wartości
 		Vector2.UP:
 			rotation_degrees = -90
-			position = Vector2(0, -6)  # Dostosuj te wartości
+			position = Vector2(0, -20)  # Dostosuj te wartości
 		Vector2.LEFT:
 			rotation_degrees = 180
 			position = Vector2(-1, 0)  # Dostosuj te wartości
@@ -40,7 +40,7 @@ func create_cone_gradient() -> Texture2D:
 	var img = Image.create(256, 256, false, Image.FORMAT_RGBA8)
 	
 	var center = Vector2(0, 128) # Lewy środek
-	var cone_angle = 60.0 # Kąt stożka w stopniach
+	var cone_angle = 65.0 # Kąt stożka w stopniach
 	var cone_length = 256.0
 	var min_distance = 5.0 # Obcięcie od strony gracza - TUTAJ!
 	

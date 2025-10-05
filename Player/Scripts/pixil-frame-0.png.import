@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0784qik8jfc5"
-path="res://.godot/imported/ground_palette.png-43ca34034d271c1efe680fb57abae2d4.ctex"
+uid="uid://ba6r4i8dljqyl"
+path="res://.godot/imported/pixil-frame-0.png-45ca408b3913092ff66f4656f2cb651d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile Maps/Sprites/ground_palette.png"
-dest_files=["res://.godot/imported/ground_palette.png-43ca34034d271c1efe680fb57abae2d4.ctex"]
+source_file="res://Player/Scripts/pixil-frame-0.png"
+dest_files=["res://.godot/imported/pixil-frame-0.png-45ca408b3913092ff66f4656f2cb651d.ctex"]
 
 [params]
 
