@@ -20,7 +20,6 @@ func TakeDamage(_damage: int) -> void:
 	if isAttacked:  # Zabezpieczenie przed wielokrotnym hitem
 		return
 		
-	print("XDD")
 	hp = hp - _damage
 	isAttacked = true
 	

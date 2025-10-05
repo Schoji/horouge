@@ -596,6 +596,7 @@ _data = {
 height = 36.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.17453292
 script = ExtResource("1_8g4oa")
@@ -670,7 +671,7 @@ debug_color = Color(0.93631685, 1.8000901e-05, 0.63481766, 0.41960785)
 
 [node name="HitBox" parent="Interactions" instance=ExtResource("13_p7tob")]
 position = Vector2(-1, 0)
-collision_layer = 258
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HitBox"]
 position = Vector2(3, 6)
