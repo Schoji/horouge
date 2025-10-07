@@ -47,7 +47,7 @@ Even though we only had 24 hours, the original idea was much bigger:
 Created by a small team of developers and artists during **HackYeah 2025**.
 
 - **Programming:** player logic, AI, lighting, hitbox system
-- **Art:** 2D sprites, Blender low-poly assets, and animation  
+- **Art:** 2D sprites, Blender pixelart render setup, and animation  
 - **Audio:** soundtrack and effects produced in FL Studio  
 
 ---
@@ -70,5 +70,5 @@ Created by a small team of developers and artists during **HackYeah 2025**.
 ---
 
 ### 🔗 Tech Summary
-Godot 4.5 • GDScript • Blender • FL Studio  
+Godot 4.5 • GDScript • Blender • Photoshop • Procreate • FL Studio  
 Built for **HackYeah 2025**
