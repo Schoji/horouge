@@ -1,3 +1,5 @@
+<img width="944" height="532" alt="image" src="https://github.com/Schoji/horouge/blob/main/Assets/Horouge_Logo.png" />
+
 # 🕯️ Horouge — Horror + Roguelike made in 24h
 
 **Horouge** is a 2D horror roguelike game created in just 24 hours during **HackYeah 2025**.  
