@@ -1,4 +1,5 @@
-<img width="944" height="532" alt="image" src="https://github.com/Schoji/horouge/blob/main/Assets/Horouge_Logo.png" />
+<img width="944" height="532" alt="Horouge_Logo_scaled" src="https://github.com/user-attachments/assets/d3490110-332c-4e01-9399-e5a2031c4319" />
+
 
 # 🕯️ Horouge — Horror + Roguelike made in 24h
 
@@ -27,7 +28,7 @@ but beware: the light reveals what hides in the shadows.
 ## ⚙️ Technology Stack
 
 - 🎮 **Engine:** Godot 4.5  
-- 🎨 **Visuals:** Pixel art + low-poly models made in Blender  
+- 🎨 **Visuals:** Pixel art + models made in Blender  
 - 🎵 **Audio:** Original soundtrack and effects made in FL Studio  
 - 💻 **Code:** GDScript — player controls, flashlight system, enemy AI, hitbox/hurtbox logic
 
