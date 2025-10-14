@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://06ga3gv10hlc"]
+[gd_scene load_steps=31 format=3 uid="uid://06ga3gv10hlc"]
 
 [ext_resource type="Script" uid="uid://csnr3jp0wbumi" path="res://world.gd" id="1_73bjl"]
 [ext_resource type="PackedScene" uid="uid://dpyjkn1nxm28c" path="res://Player/Player.tscn" id="1_uof5o"]
@@ -6,12 +6,12 @@
 [ext_resource type="Script" uid="uid://bj1ex5krh56dn" path="res://Scenes/game_over.gd" id="2_xwjr1"]
 [ext_resource type="PackedScene" uid="uid://tbhp2nsl8sac" path="res://Enemy/Enemy.tscn" id="3_u4ce8"]
 [ext_resource type="FontFile" uid="uid://dsouy4osrjear" path="res://Assets/PixelatedDisplay.ttf" id="3_ubr2o"]
-[ext_resource type="PackedScene" path="res://rocks_01.tscn" id="4_qyfof"]
+[ext_resource type="PackedScene" uid="uid://mp0ljg6qhq20" path="res://rocks_01.tscn" id="4_qyfof"]
 [ext_resource type="Texture2D" uid="uid://b16myr5iybpyp" path="res://Tile Maps/Sprites/rock_palette.png" id="5_3e07v"]
 [ext_resource type="PackedScene" uid="uid://0dffncivpldo" path="res://trees_01.tscn" id="6_vl51c"]
-[ext_resource type="PackedScene" path="res://rocks_02.tscn" id="7_opmy1"]
-[ext_resource type="PackedScene" path="res://bushes_01.tscn" id="8_m3lqc"]
-[ext_resource type="Script" path="res://Player/Scripts/rain.gd" id="8_wqftc"]
+[ext_resource type="PackedScene" uid="uid://du7k88iuluxvg" path="res://rocks_02.tscn" id="7_opmy1"]
+[ext_resource type="PackedScene" uid="uid://biguajb1elu6e" path="res://bushes_01.tscn" id="8_m3lqc"]
+[ext_resource type="Script" uid="uid://b5o76e56yawr" path="res://Player/Scripts/rain.gd" id="8_wqftc"]
 [ext_resource type="Script" uid="uid://bktj70ccb7ure" path="res://GeneralNodes/Spawner.gd" id="9_m3lqc"]
 [ext_resource type="PackedScene" uid="uid://2fc4iucpxh5m" path="res://hearts_container.tscn" id="10_6hjy0"]
 [ext_resource type="AudioStream" uid="uid://dfig4ua1tootg" path="res://Assets/ost.wav" id="14_xwjr1"]
@@ -20,6 +20,9 @@
 [ext_resource type="Script" uid="uid://cpisyfg18t2v" path="res://Scenes/main_menu.gd" id="17_ogptx"]
 [ext_resource type="Texture2D" uid="uid://6ax3vg8626pt" path="res://Assets/spidey_menu.png" id="18_i7unl"]
 [ext_resource type="Script" uid="uid://dh5edvsifdk1y" path="res://Scenes/mainspider.gd" id="19_wc4mg"]
+[ext_resource type="Script" uid="uid://ck8dxcrqypwm5" path="res://Scenes/about.gd" id="21_i25ng"]
+[ext_resource type="Texture2D" uid="uid://ljg5n0bujpib" path="res://Assets/github_logo.png" id="21_nwjs7"]
+[ext_resource type="Script" uid="uid://pvufnufcmaim" path="res://Scenes/github_button.gd" id="22_f4cs6"]
 
 [sub_resource type="FontVariation" id="FontVariation_2f6ep"]
 base_font = ExtResource("3_ubr2o")
@@ -56,21 +59,6 @@ sources/0 = SubResource("TileSetAtlasSource_vl51c")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogptx"]
 bg_color = Color(0, 0, 0, 0.5372549)
 
-[sub_resource type="Animation" id="Animation_i7unl"]
-resource_name = "pajacowanie"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.93333334),
-"transitions": PackedFloat32Array(0.26794347, 0.25),
-"update": 0,
-"values": [Vector2(155, -300), Vector2(160, 183)]
-}
-
 [sub_resource type="Animation" id="Animation_wc4mg"]
 length = 0.001
 tracks/0/type = "value"
@@ -84,6 +72,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(169, 183)]
+}
+
+[sub_resource type="Animation" id="Animation_i7unl"]
+resource_name = "pajacowanie"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93333334),
+"transitions": PackedFloat32Array(0.26794347, 0.25),
+"update": 0,
+"values": [Vector2(155, -300), Vector2(160, 183)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i25ng"]
@@ -226,7 +229,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="MainMenu/Panel"]
-position = Vector2(250, 73.5)
+position = Vector2(250, 70.5)
 texture = ExtResource("17_2f6ep")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Panel"]
@@ -242,6 +245,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ubr2o")
 theme_override_font_sizes/font_size = 24
 text = "PLAY"
+flat = true
 
 [node name="Options" type="Label" parent="MainMenu/Panel/VBoxContainer"]
 layout_mode = 2
@@ -255,19 +259,99 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ubr2o")
 theme_override_font_sizes/font_size = 24
 text = "EXIT"
+flat = true
 
 [node name="Label" type="Label" parent="MainMenu/Panel"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 267.0
-offset_right = 245.0
-offset_bottom = 290.0
+offset_left = 4.0
+offset_top = 268.0
+offset_right = 277.0
+offset_bottom = 291.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.47843137)
 theme_override_fonts/font = ExtResource("3_ubr2o")
 theme_override_font_sizes/font_size = 10
-text = "0.1.1b-25.10 PRE RELEASE ALPHA (JSON DERULO)"
+text = "0.1.1b-26.10 PRE RELEASE ALPHA (JSON DERULO Team)"
 uppercase = true
+
+[node name="github" type="Button" parent="MainMenu"]
+offset_left = 379.0
+offset_top = 255.0
+offset_right = 917.0
+offset_bottom = 775.0
+scale = Vector2(0.045, 0.045)
+icon = ExtResource("21_nwjs7")
+flat = true
+icon_alignment = 1
+script = ExtResource("22_f4cs6")
+
+[node name="About" type="Button" parent="MainMenu"]
+offset_left = 411.0
+offset_top = 252.0
+offset_right = 474.0
+offset_bottom = 283.0
+theme_override_fonts/font = ExtResource("3_ubr2o")
+text = "ABOUT"
+flat = true
+
+[node name="About" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("21_i25ng")
+
+[node name="Back" type="Button" parent="About"]
+top_level = true
+z_index = 3
+offset_left = 411.0
+offset_top = 252.0
+offset_right = 474.0
+offset_bottom = 283.0
+theme_override_fonts/font = ExtResource("3_ubr2o")
+text = "	BACK"
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="About"]
+z_index = 1
+offset_left = 24.0
+offset_top = 28.0
+offset_right = 467.0
+offset_bottom = 263.0
+theme_override_fonts/normal_font = ExtResource("3_ubr2o")
+theme_override_font_sizes/normal_font_size = 11
+text = "Team JSON Derulo | HackYeah 2025
+
+Piotr \"Schōji\" Wittig
+Code
+Enemy AI
+Environment
+Game logic
+
+Patryk \"Shoegayzer\" Piaścik
+Code
+Level Design
+OST
+SFX
+
+Aleksy \"Zekq\" Chojnowski
+Characters Design
+Characters Animate
+Map elements"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="About"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="GameOver/Button" to="GameOver" method="_on_button_pressed"]
 [connection signal="pressed" from="MainMenu/Panel/VBoxContainer/Play" to="MainMenu" method="_on_play_pressed"]
 [connection signal="pressed" from="MainMenu/Panel/VBoxContainer/Exit" to="MainMenu" method="_on_exit_pressed"]
+[connection signal="pressed" from="MainMenu/github" to="MainMenu/github" method="_on_pressed"]
+[connection signal="pressed" from="MainMenu/About" to="MainMenu" method="_on_about_pressed"]
+[connection signal="pressed" from="MainMenu/About" to="About" method="_on_about_pressed"]
+[connection signal="pressed" from="About/Back" to="MainMenu" method="_on_back_pressed"]
+[connection signal="pressed" from="About/Back" to="About" method="_on_button_pressed"]
