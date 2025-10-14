@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://06ga3gv10hlc"]
+[gd_scene load_steps=32 format=3 uid="uid://06ga3gv10hlc"]
 
 [ext_resource type="Script" uid="uid://csnr3jp0wbumi" path="res://world.gd" id="1_73bjl"]
 [ext_resource type="PackedScene" uid="uid://dpyjkn1nxm28c" path="res://Player/Player.tscn" id="1_uof5o"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://ck8dxcrqypwm5" path="res://Scenes/about.gd" id="21_i25ng"]
 [ext_resource type="Texture2D" uid="uid://ljg5n0bujpib" path="res://Assets/github_logo.png" id="21_nwjs7"]
 [ext_resource type="Script" uid="uid://pvufnufcmaim" path="res://Scenes/github_button.gd" id="22_f4cs6"]
+[ext_resource type="FontFile" uid="uid://b1odwudmpqso2" path="res://Assets/Pixeled.ttf" id="24_f4cs6"]
 
 [sub_resource type="FontVariation" id="FontVariation_2f6ep"]
 base_font = ExtResource("3_ubr2o")
@@ -229,7 +230,7 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="MainMenu/Panel"]
-position = Vector2(250, 70.5)
+position = Vector2(250, 68.5)
 texture = ExtResource("17_2f6ep")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Panel"]
@@ -270,7 +271,7 @@ offset_bottom = 291.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.47843137)
 theme_override_fonts/font = ExtResource("3_ubr2o")
 theme_override_font_sizes/font_size = 10
-text = "0.1.1b-26.10 PRE RELEASE ALPHA (JSON DERULO Team)"
+text = "0.2.0 b-14.10 PRE RELEASE ALPHA"
 uppercase = true
 
 [node name="github" type="Button" parent="MainMenu"]
@@ -311,20 +312,21 @@ flat = true
 [node name="RichTextLabel" type="RichTextLabel" parent="About"]
 z_index = 1
 offset_left = 24.0
-offset_top = 28.0
+offset_top = 7.0
 offset_right = 467.0
-offset_bottom = 263.0
-theme_override_fonts/normal_font = ExtResource("3_ubr2o")
-theme_override_font_sizes/normal_font_size = 11
+offset_bottom = 275.0
+theme_override_fonts/normal_font = ExtResource("24_f4cs6")
+theme_override_font_sizes/normal_font_size = 5
 text = "Team JSON Derulo | HackYeah 2025
 
-Piotr \"Schōji\" Wittig
+Piotr \"Schoji\" Wittig
+lead vibecoder
 Code
 Enemy AI
 Environment
 Game logic
 
-Patryk \"Shoegayzer\" Piaścik
+Patryk \"Shoegayzer\" Piascik
 Code
 Level Design
 OST

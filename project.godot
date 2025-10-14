@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="horoug"
+config/name="horouge"
+config/version="0.2.0"
 run/main_scene="res://Scenes/playground.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://cl3fsqxbnfgua"
+config/icon="uid://xk67r3syseue"
 
 [display]
 
