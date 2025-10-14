@@ -311,10 +311,10 @@ flat = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="About"]
 z_index = 1
-offset_left = 24.0
-offset_top = 7.0
-offset_right = 467.0
-offset_bottom = 275.0
+offset_left = 130.0
+offset_top = 8.0
+offset_right = 381.0
+offset_bottom = 276.0
 theme_override_fonts/normal_font = ExtResource("24_f4cs6")
 theme_override_font_sizes/normal_font_size = 5
 text = "Team JSON Derulo | HackYeah 2025
